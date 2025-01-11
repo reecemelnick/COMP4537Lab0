@@ -80,9 +80,11 @@ class ButtonManager {
             this.targetButton++;
             if(button.id == this.buttons.length) {
                 document.getElementById("correct").style.visibility = "visible";
+                document.getElementById("start-btn").disabled = false;
             }
         } else {
             document.getElementById("wrong").style.visibility = "visible";
+            document.getElementById("start-btn").disabled = false;
             for(let i = 0; i < this.buttons.length; i++) {
                 let btn = document.getElementById(i+1);
                 btn.textContent = btn.id;
@@ -114,6 +116,7 @@ class Game {
             if(this.checkValidInput(inputValue)) {
                 this.numOfButtons = inputValue;
                 this.buttonManager.generateAllButtons(this.numOfButtons);
+                document.getElementById("start-btn").disabled = true;
             }
         });
     }
