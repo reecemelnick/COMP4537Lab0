@@ -1,0 +1,15 @@
+#wrong {
+    visibility: hidden;
+}
+
+#correct {
+    visibility: hidden;
+}
+
+#gameSpace {
+    width: 80%;
+    height: 550px;
+    position: relative;
+    background-color: brown;
+    overflow: hidden;
+}
