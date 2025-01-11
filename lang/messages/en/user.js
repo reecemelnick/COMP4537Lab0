@@ -1,6 +1,6 @@
 const userMessages = {
-    wrong: "You're Wrong!",
-    correct: "Great Memory!"
+    wrong: "Wrong order!",
+    correct: "Excellent Memory!"
 }
 
 export default userMessages;

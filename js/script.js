@@ -15,9 +15,9 @@ class Button {
     }
 
     getRandomColor() {
-        var letters = '0123456789ABCDEF';
-        var color = '#';
-        for (var i = 0; i < 6; i++) {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
           color += letters[Math.floor(Math.random() * 16)];
         }
         return color;
@@ -31,7 +31,6 @@ class ButtonManager {
     }
 
     async generateAllButtons(n) {
-        console.log("In function: " + n);
         for(let i = 0; i < n; ++i) {
             this.buttons.push(new Button(i+1));
         }
@@ -56,7 +55,6 @@ class ButtonManager {
     initializeButtonListener(button) {
         button.textContent = "";
         button.addEventListener('click', () => {
-            console.log("Button " + button.id + "clicked");
             this.checkTarget(button);
         });
     }
@@ -77,9 +75,7 @@ class ButtonManager {
     }
 
     checkTarget(button) {
-        console.log("Button clicked: " + button.id + " Target: " + this.targetButton);
         if(button.id == this.targetButton) {
-            console.log("correct");
             button.textContent = button.id;
             this.targetButton++;
             if(button.id == this.buttons.length) {
@@ -107,7 +103,6 @@ class Game {
 
     initializeEventListener() {
         this.startBtn.addEventListener('click', () => {
-            console.log("In clickable");
             document.getElementById("wrong").style.visibility = "hidden";
             document.getElementById("correct").style.visibility = "hidden";
             for(let i = 0; i < this.buttonManager.buttons.length; i++) {
@@ -119,13 +114,11 @@ class Game {
             if(this.checkValidInput(inputValue)) {
                 this.numOfButtons = inputValue;
                 this.buttonManager.generateAllButtons(this.numOfButtons);
-                console.log(this.buttonManager.buttons.length)
             }
         });
     }
     
     checkValidInput(val) {
-        console.log("Checking  valid input");
         if (val < 3 || val > 7) {
             return false;
         } else 
